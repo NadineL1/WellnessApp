@@ -7,7 +7,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
 
     async function handleSubmit(e) {
-        e.prevenDefault();
+        e.preventDefault();
 
         await loginWithCookies(email, password);
     }
