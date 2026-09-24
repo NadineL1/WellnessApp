@@ -1,0 +1,67 @@
+.page-container {
+    max-width: 1400px;
+    margin: 5rem auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 10rem;
+    align-items: center;
+    padding: 0 1%;
+}
+
+.login-container {
+    flex: 2;
+    min-width: 250px;
+    max-width: 700px;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(174, 133, 133);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: 0.1rem solid rgb(174, 133, 133);
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: rgb(174, 133, 133);
+}
+
+input[type="password"],
+input[type="email"],
+textarea {
+    width: 95%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid rgb(174, 133, 133);
+    border-radius: 6px;
+}
+
+input::placeholder {
+    color: rgb(174, 133, 133);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: rgb(174, 133, 133);
+}
+
+.login-container label {
+    display: block;
+    font-weight: medium;
+    margin-bottom: 0.5rem;
+    color: rgb(174, 133, 133);
+}
+
+.submit-btn {
+    background-color: rgb(174, 133, 133);
+    color: rebeccapurple;
+    font-size: larger;
+    font-weight: bold;
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(62, 165, 62);
+}

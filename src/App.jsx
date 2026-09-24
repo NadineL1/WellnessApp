@@ -1,11 +1,12 @@
-import './App.css'
-import MyDailyLogs from './components/MyDailyLogs'
+import './App.css';
+import LoginPage from '../src/components/auth/Login';
+
 
 function App() {
 
   return (
     <>
-      <MyDailyLogs />
+      <LoginPage />
     </>
   )
 }
