@@ -23,7 +23,7 @@ export default function Register() {
 
     return (
         <div className='page-container'>
-            <div className='login-container'>
+            <div className='content-container'>
                 <h1>Register</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='email'>Email</label>
