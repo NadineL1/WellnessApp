@@ -19,19 +19,21 @@
 
 h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     border-bottom: 0.1rem solid rgb(174, 133, 133);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     margin-top: 0;
     color: rgb(174, 133, 133);
 }
 
-input[type="password"],
-input[type="email"],
+label {
+    margin-top: 1rem;
+}
+
+input,
 textarea {
     width: 95%;
     padding: 1rem;
-    margin-top: 1rem;
     border: 1px solid rgb(174, 133, 133);
     border-radius: 6px;
 }
@@ -54,8 +56,8 @@ textarea:focus {
 }
 
 .submit-btn {
-    background-color: rgb(174, 133, 133);
-    color: rebeccapurple;
+    background-color: rgb(206, 166, 166);
+    color: rgb(246, 223, 18);
     font-size: larger;
     font-weight: bold;
     padding: 1rem;
@@ -63,5 +65,6 @@ textarea:focus {
     width: 100%;
     border-radius: 10px;
     border: none;
-    box-shadow: 1px 1px 10px rgb(62, 165, 62);
+    box-shadow: 1px 1px 10px rgb(234, 218, 75);
+    margin-bottom: 1rem;
 }
