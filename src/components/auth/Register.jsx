@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { registerUser } from '../../services/auth/RegisterService';
-import '../../css/Login.css';
+import '../../css/Auth.css';
 
 
 export default function Register() {
@@ -24,6 +24,7 @@ export default function Register() {
     return (
         <div className='page-container'>
             <div className='login-container'>
+                <h1>Register</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='email'>Email</label>
                     <input

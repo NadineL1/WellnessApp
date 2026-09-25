@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { loginWithCookies } from '../../services/auth/LoginService';
-import '../../css/Login.css';
+import '../../css/Auth.css';
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -21,8 +21,10 @@ export default function Login() {
             <div className='login-container'>
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="youremail@mail.com" />
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' />
+                    <label htmlFor='email'>Email</label>
+                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="youremail@mail.com" required />
+                    <label htmlFor='password'>Password</label>
+                    <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' required />
                     <button type="submit" className='submit-btn'>Login</button>
                 </form>
                 <a href='/register'>No account yet? Register</a>
