@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { loginWithCookies } from '../../services/AuthService';
+import { loginWithCookies } from '../../services/auth/LoginService';
 import '../../css/Login.css';
 
 export default function Login() {
@@ -8,8 +8,12 @@ export default function Login() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        try {
+            await loginWithCookies(email, password);
+        } catch (error) {
+            console.log('User not found', error);
+        }
 
-        await loginWithCookies(email, password);
     }
 
     return (
