@@ -1,31 +1,50 @@
 import { useState } from "react";
-import { createDailyLog } from "../services/DailyLogService";
+import { createDailylog } from "../services/DailyLogService";
 
 export default function CreateLog() {
-    const [mood, setMood] = useState("");
-    const [workout, setWorkout] = useState("");
-    const [workoutdescription, setWorkoutdesc] = useState("");
-    const [water, setWater] = useState("");
-    const [glassesofwater, setGlassesofwater] = useState("");
+    const [moodId, setMoodId] = useState(0);
+    const [workoutChecked, setWorkoutChecked] = useState(false);
+    const [workoutDesc, setWorkoutDesc] = useState("");
+    const [waterChecked, setWaterChecked] = useState(false);
+    const [waterConsumed, setWaterConsumed] = useState(0);
 
     async function handleSubmit(e) {
-        e.prevenDefault();
+        e.preventDefault();
+        const dailylogToAdd = { moodId, workoutChecked, workoutDesc, waterChecked, waterConsumed }
+        await createDailylog(dailylogToAdd);
 
-        await createDailyLog(mood, workout, workoutdescription, water, glassesofwater);
+        // reset the form to be empty
+        setMoodId(0);
+        setWorkoutChecked(false);
+        setWorkoutDesc("");
+        setWaterChecked(false);
+        setWaterConsumed(0);
     }
 
     return (
-        <div>
-            <h1></h1>
-            <p></p>
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={mood} onChange={(e) => setMood(e.target.value)} name="mood" placeholder="MoodId" />
-                <input type="text" value={workout} onChange={(e) => setWorkout(e.target.value)} name="workout" placeholder="WorkoutToday?" />
-                <input type="text" value={workoutdescription} onChange={(e) => setWorkoutdesc(e.target.value)} name="workoutdescription" placeholder="workoutdesription" />
-                <input type="text" value={water} onChange={(e) => setWater(e.target.value)} name="water" placeholder="WaterToday?" />
-                <input type="text" value={glassesofwater} onChange={(e) => setGlassesofwater(e.target.value)} name="glassesofwater" placeholder="how many glasses" />
-                <button type="handleSubmit" >Create daily log</button>
-            </form>
+        <div className='page-container'>
+            <div className='content-container'>
+                <h1>Today's Daily Log</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor='moodId'>Today's Mood</label>
+                    <select id='moodId' type="number" value={moodId} onChange={(e) => setMoodId(Number(e.target.value))}>
+                        <option value={1}>1.Very Bad</option>
+                        <option value={2}>2.Bad</option>
+                        <option value={3}>3.Okay</option>
+                        <option value={4}>4.Good</option>
+                        <option value={5}>5.Fantastic</option>
+                    </select>
+                    <label htmlFor='workoutChecked'>Did you work out today?</label>
+                    <input type="checkbox" name="workoutChecked" value={workoutChecked} onChange={(e) => setWorkoutChecked(e.target.checked)} />
+                    <label htmlFor='workoutDesc'>Describe your workout:</label>
+                    <input type="text" name="workoutDesc" value={workoutDesc} onChange={(e) => setWorkoutDesc(e.target.value)} placeholder="workout description" required />
+                    <label htmlFor='waterChecked'>Did you drink water today?</label>
+                    <input type="checkbox" name="waterChecked" value={waterChecked} onChange={(e) => setWaterChecked(e.target.checked)} />
+                    <label htmlFor='waterConsumed'>How many glasses of water did you drink?</label>
+                    <input type="number" name="waterConsumed" placeholder="how many glasses" value={waterConsumed} onChange={(e) => setWaterConsumed(Number(e.target.value))} required />
+                    <button type="submit" className='submit-btn'>Create daily log</button>
+                </form>
+            </div>
         </div>
     )
 }
