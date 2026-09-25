@@ -8,7 +8,7 @@
     padding: 0 1%;
 }
 
-.login-container {
+.content-container {
     flex: 2;
     min-width: 250px;
     max-width: 700px;
@@ -26,10 +26,16 @@ h1 {
     color: rgb(174, 133, 133);
 }
 
-label {
-    margin-top: 1rem;
+
+ul {
+    list-style: none;
 }
 
+li {
+    padding: 2rem;
+}
+
+select,
 input,
 textarea {
     width: 95%;
@@ -42,13 +48,19 @@ input::placeholder {
     color: rgb(174, 133, 133);
 }
 
+input[type="checkbox"] {
+    accent-color: rgb(174, 133, 133);
+    border: 1px solid rgb(174, 133, 133);
+}
+
 input:focus,
 textarea:focus {
     outline: none;
     border-color: rgb(174, 133, 133);
 }
 
-.login-container label {
+.content-container label {
+    margin-top: 1rem;
     display: block;
     font-weight: medium;
     margin-bottom: 0.5rem;
