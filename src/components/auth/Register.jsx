@@ -73,6 +73,7 @@ export default function Register() {
                         placeholder='Birthday'
                         required />
                     <button type="submit" className='submit-btn'>Register user</button>
+                    <a href='/'>Already a member? sign in</a>
                 </form>
             </div>
         </div>

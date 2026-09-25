@@ -25,6 +25,7 @@ export default function Login() {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='*********' />
                     <button type="submit" className='submit-btn'>Login</button>
                 </form>
+                <a href='/register'>No account yet? Register</a>
             </div>
         </div>
     )
