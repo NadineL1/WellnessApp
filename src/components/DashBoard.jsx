@@ -30,6 +30,12 @@ export default function Dashboard() {
                 <ul>
                     {dailylogs.map(dailylog => (
                         <li key={dailylog.id}>
+                            <a href=""><span class="material-symbols-outlined">
+                                edit
+                            </span></a>
+                            <a href=""><span class="material-symbols-outlined">
+                                delete
+                            </span></a>
                             <p><b>Date:</b>{dailylog.logDate}</p>
                             <p><b>Mood:</b>{dailylog.mood.id}.{dailylog.mood.description}</p>
                             <p><b>Water:</b>{dailylog.water.waterChecked}{dailylog.water.waterConsumed}</p>
