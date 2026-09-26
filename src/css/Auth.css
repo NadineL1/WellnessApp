@@ -26,6 +26,11 @@ h1 {
     color: rgb(174, 133, 133);
 }
 
+h3 {
+    text-align: center;
+    color: rgb(174, 133, 133);
+    font-size: 2rem;
+}
 
 ul {
     list-style: none;
@@ -75,6 +80,21 @@ textarea:focus {
     padding: 1rem;
     margin-top: 1rem;
     width: 100%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(234, 218, 75);
+    margin-bottom: 1rem;
+}
+
+.edit-btn {
+    background-color: rgb(206, 166, 166);
+    color: rgb(246, 223, 18);
+    font-size: larger;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    width: 10%;
     border-radius: 10px;
     border: none;
     box-shadow: 1px 1px 10px rgb(234, 218, 75);
