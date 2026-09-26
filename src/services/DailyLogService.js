@@ -15,12 +15,13 @@ export async function createDailylog(dailylog) {
     console.log(response);
     return response.data;
 }
-export async function updateDailylog(id, dailylog) {
-    let response = await api.put(`dailylog/${id}`, dailylog);
+export async function updateDailylog(dailylog) {
+    console.log(dailylog);
+    let response = await api.put("dailylog", dailylog);
     console.log(response);
     return response.data;
 }
 export async function deleteDailylog(id) {
-    let response = await api.delete(`dailylog/${id}`);
+    let response = await api.delete(`dailylog?dailyLogId=${id}`);
     console.log(response);
 }
