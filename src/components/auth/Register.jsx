@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { registerUser } from '../../services/auth/RegisterService';
 import '../../css/Auth.css';
-
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -11,11 +11,14 @@ export default function Register() {
     const [age, setAge] = useState("");
     const [birthday, setBirthday] = useState("");
 
+    const navigate = useNavigate();
+
     async function handleSubmit(e) {
         e.preventDefault();
         try {
             const userToAdd = { email, password, firstname, lastname, age: parseInt(age), birthday }
             await registerUser(userToAdd);
+            navigate('/login');
         } catch (error) {
             console.log('error creating new user', error);
         }

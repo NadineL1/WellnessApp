@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { loginWithCookies } from '../../services/auth/LoginService';
 import '../../css/Auth.css';
 
@@ -6,10 +7,13 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const navigate = useNavigate();
+
     async function handleSubmit(e) {
         e.preventDefault();
         try {
             await loginWithCookies(email, password);
+            navigate('/dashboard');
         } catch (error) {
             console.log('User not found', error);
         }
