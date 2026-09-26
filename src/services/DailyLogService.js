@@ -6,7 +6,7 @@ const api = axios.create({
 });
 
 export async function showDailylogs() {
-    let response = await api.get('DailyLog/Admin');
+    let response = await api.get('dailylog');
     console.log(response);
     return response.data;
 }
