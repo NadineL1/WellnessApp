@@ -14,7 +14,7 @@ function App() {
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/newdailylog' element={<NewDailyLog />} />
       <Route path='/dashboard' element={<DashboardPage />} />
-      <Route path='/notfound' element={<NotFoundPage />} />
+      <Route path='*' element={<NotFoundPage />} />
     </Routes>
   )
 }
