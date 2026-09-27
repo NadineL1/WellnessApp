@@ -23,7 +23,7 @@ export default function Login() {
     return (
         <div className='page-container'>
             <div className='content-container'>
-                <h1>Login</h1>
+                <h1>Login deployed</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='email'>Email</label>
                     <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="youremail@mail.com" required />
