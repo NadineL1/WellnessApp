@@ -1,9 +1,21 @@
 import axios from 'axios';
+import { logOutUser } from './auth/LogoutService';
 
 const api = axios.create({
     baseURL: "https://localhost:7119/api/",
     withCredentials: true
 });
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response?.status === 401) {
+            logOutUser();
+            window.location.replace("/");
+        }
+        return;
+    }
+);
 
 export async function showDailylogs() {
     let response = await api.get('dailylog');
