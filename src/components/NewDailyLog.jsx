@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { createDailylog } from "../services/DailyLogService";
+import { logOutUser } from "../services/auth/LogoutService";
+import { useNavigate } from "react-router";
 
 export default function CreateLog() {
     const [moodId, setMoodId] = useState(1);
@@ -7,6 +9,13 @@ export default function CreateLog() {
     const [workoutDesc, setWorkoutDesc] = useState("");
     const [waterChecked, setWaterChecked] = useState(false);
     const [waterConsumed, setWaterConsumed] = useState(0);
+
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        await logOutUser()
+        navigate('/');
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -26,7 +35,7 @@ export default function CreateLog() {
             <div className='content-container'>
                 <h1>Today's Daily Log</h1>
                 <button className="btn"><a href='/dashboard'>Go to Dashboard</a></button>
-                <button className="btn">Logout</button>
+                <button className="btn" onClick={handleLogout}>Logout</button>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='moodId'>Today's Mood</label>
                     <select id='moodId' type="number" value={moodId} onChange={(e) => setMoodId(Number(e.target.value))}>

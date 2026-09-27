@@ -3,10 +3,18 @@ import { showDailylogs, deleteDailylog } from "../services/DailyLogService";
 import EditDailyLogModal from "../components/EditDailyLogModal";
 import { defaults } from "chart.js/auto";
 import { Line, Doughnut } from "react-chartjs-2";
+import { logOutUser } from "../services/auth/LogoutService";
+import { useNavigate } from 'react-router';
 
 export default function Dashboard() {
     const [dailylogs, setDailylogs] = useState([]);
 
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        await logOutUser()
+        navigate('/');
+    }
     async function getDailylogs() {
         try {
             const dailylogList = await showDailylogs();
@@ -82,7 +90,7 @@ export default function Dashboard() {
             <div className='content-container'>
                 <h1>Dashboard</h1>
                 <button className="btn"><a href='/newdailylog'>Create new dailyLog</a></button>
-                <button className="btn">Logout</button>
+                <button className="btn" onClick={handleLogout}>Logout</button>
 
                 <div className='content-container'><Line
                     data={{
