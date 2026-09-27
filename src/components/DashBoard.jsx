@@ -63,7 +63,7 @@ export default function Dashboard() {
         defaults.plugins.title.display = true;
         defaults.plugins.title.font.size = 25;
         defaults.plugins.title.color = "rgb(185, 103, 206)";
-        defaults.maindainAspectRation = false;
+        defaults.maindainAspectRation = true;
         defaults.responsive = true;
     }
 
@@ -81,6 +81,9 @@ export default function Dashboard() {
         <div className='page-container'>
             <div className='content-container'>
                 <h1>Dashboard</h1>
+                <button className="btn"><a href='/newdailylog'>Create new dailyLog</a></button>
+                <button className="btn">Logout</button>
+
                 <div className='content-container'><Line
                     data={{
                         labels: dailylogs.map((data) => data.logDate),

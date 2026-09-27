@@ -25,6 +25,8 @@ export default function CreateLog() {
         <div className='page-container'>
             <div className='content-container'>
                 <h1>Today's Daily Log</h1>
+                <button className="btn"><a href='/dashboard'>Go to Dashboard</a></button>
+                <button className="btn">Logout</button>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='moodId'>Today's Mood</label>
                     <select id='moodId' type="number" value={moodId} onChange={(e) => setMoodId(Number(e.target.value))}>
